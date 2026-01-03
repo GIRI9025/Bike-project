@@ -1,0 +1,116 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+ .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  
+  
+}
+
+.item {
+  background: #ddd;
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 8px;
+  min-width: 250px;
+  min-height: 300px;
+}
+
+/* Row 1 */
+.i1 { grid-column: span 1; }
+.i2 { grid-column: span 2; }
+.i3 { grid-column: span 1; }
+
+/* Row 3 – 9 is tall */
+.i9 {
+  grid-row: span 2;
+}
+
+/* Row 4 */
+.i12 { grid-column: 1 / 2; }
+.i13 { grid-column: 3 / 4; }
+.i14 { grid-column: 4 / 5; } */
+
+
+
+
+
+
+/* Default → Desktop (Your drawing layout) */
+/* .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.item {
+  background: #ddd;
+  padding: 25px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 8px;
+} */
+
+/* Special desktop shape */
+.i2 { grid-column: span 2; }
+.i9 { grid-row: span 2; }
+.i12 { grid-column: 1; }
+.i13 { grid-column: 3; }
+.i14 { grid-column: 4; }
+
+/* ----------------------------------------- */
+/* 300px – 600px → KILA-KILA (2-column grid) */
+/* ----------------------------------------- */
+/* @media (min-width: 300px) and (max-width: 600px) {
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .i2,
+  .i9 {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  .i12, .i13, .i14 {
+    grid-column: auto;
+  }
+} */
+
+@media (min-width: 300px) and (max-width: 600px) {
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1fr, 1fr */
+    gap: 10px;
+  }
+
+  /* Desktop rules cancel */
+  .i2, .i9 {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  /* ⭐ Correct order for 1fr 1fr responsive */
+  .i1  { order: 1; }
+  .i2  { order: 2; }
+  .i3  { order: 3; }
+  .i4  { order: 4; }
+  .i5  { order: 5; }
+  .i6  { order: 6; }
+  .i7  { order: 7; }
+  .i8  { order: 8; }
+  .i9  { order: 9; }
+  .i12 { order: 10; }
+  .i10 { order: 11; }
+  .i11 { order: 12; }
+  .i13 { order: 13; }
+  .i14 { order: 14; }
+}
